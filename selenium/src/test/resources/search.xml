@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite thread-count="2" verbose="1" name="test example" annotations="JDK" parallel="tests">
+
+    <test name="search">
+        <classes>
+            <class name="com.examples.googlesearch.GoogleTest"/>
+        </classes>
+    </test>
+</suite>
