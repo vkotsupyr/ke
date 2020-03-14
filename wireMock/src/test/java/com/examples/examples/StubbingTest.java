@@ -27,6 +27,7 @@ public class StubbingTest
     {
         this.wireMockServer = new WireMockServer( WireMockConfiguration.options().bindAddress( ( "127.0.0.1" ) ).port( 9090 ) );
         this.wireMockServer.start();
+        restTemplate = new RestTemplate(  );
     }
 
 
@@ -41,12 +42,15 @@ public class StubbingTest
     void testReturnConfiguredHttpResponse()
     {
         //Identify the HTTP request
-        WireMock.givenThat( WireMock.get( WireMock.urlEqualTo( "/api/message" ) ).willReturn( WireMock.aResponse().withStatus( HttpStatus.SC_OK ) ) );
+//        WireMock.givenThat( WireMock.get( WireMock.urlEqualTo( "/api/message" ) ).willReturn( WireMock.aResponse().withStatus( HttpStatus.SC_OK ) ) );
+        wireMockServer.stubFor(WireMock.get((WireMock.urlEqualTo("/api/message"))).willReturn(WireMock.aResponse().withStatus( HttpStatus.SC_OK )
+            .withHeader("Content-Type", "text/plain")
+                .withBody("Hello world!")));
 
         String serverUrl = buildApiMethodUrl();
         ResponseEntity<String> response = restTemplate.getForEntity( serverUrl, String.class );
 
-        Assert.assertEquals( response.getStatusCode(), HttpStatus.SC_OK );
+        Assert.assertEquals( response.getStatusCode().value(), HttpStatus.SC_OK );
     }
 
     private String buildApiMethodUrl()
