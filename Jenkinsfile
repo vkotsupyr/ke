@@ -6,6 +6,7 @@ pipeline {
                 echo 'Building'
                 withGradle() {
                     sh './gradlew -v'
+                }
             }
         }
         stage('Test') {
