@@ -15,6 +15,7 @@ public class AbstractUiTest
     {
         System.setProperty("webdriver.gecko.driver","C:\\my\\KE\\libs\\geckodriver-v0.26.0-win64\\geckodriver.exe");
         driver = new FirefoxDriver();
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS );
         driver.navigate().to( "https://www.google.com/" );

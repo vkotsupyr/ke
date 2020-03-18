@@ -7,7 +7,6 @@
             <class name="com.examples.suite1.SearchSuite1"/>
         </classes>
     </test>
-
     <test name="example 2">
         <classes>
             <class name="com.examples.suite2.SearchSuite2"/>

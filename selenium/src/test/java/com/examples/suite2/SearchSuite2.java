@@ -12,6 +12,7 @@ public class SearchSuite2 extends AbstractUiTest
     public void searchTest()
     {
         WebElement search = driver.findElement( By.name( "q" ) );
+
         search.clear();
         search.sendKeys( "TEST" );
         search.sendKeys( Keys.ENTER );

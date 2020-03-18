@@ -35,7 +35,7 @@ public class GooglePage
         this.driver.get("https://www.google.com");
     }
 
-    public void searchFor(String text) throws InterruptedException {
+    public void searchFor(String text) {
         this.searchBox.sendKeys(text);
         wait.until( ExpectedConditions.elementToBeClickable(this.searchButton));
         this.searchButton.click();

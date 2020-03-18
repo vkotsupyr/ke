@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 @DisplayName( "Configure the returned HTTP response" )
-//@TestInstance( TestInstance.Lifecycle.PER_CLASS)
 public class StubbingTest
 {
     private RestTemplate restTemplate;

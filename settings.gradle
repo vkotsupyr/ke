@@ -1,0 +1,4 @@
+rootProject.name = 'ke_examples'
+include 'wireMock'
+include 'selenium'
+

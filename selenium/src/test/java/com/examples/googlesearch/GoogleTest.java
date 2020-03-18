@@ -23,7 +23,6 @@ public class GoogleTest
         dc.setBrowserName( "chrome" );
         dc.setPlatform( Platform.LINUX );
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
-//        driver = new RemoteWebDriver(new URL("http://172.17.0.4:5555/wd/hub"), dc);
         google = new GooglePage(driver);
     }
 
