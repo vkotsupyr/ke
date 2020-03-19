@@ -32,11 +32,11 @@ pipeline {
             steps {
                 echo 'E2E'
                 echo "E2E with cred ${SER_CRED}"
-                withCredentials([
-                    usernamePassword(credentials: 'global', usernameVar: USER, passwordVar: PWD)
-                ]) {
-                    sh "some script ${USER} and pass ${PWD}"
-                }
+               // withCredentials([
+                //    usernamePassword(credentials: 'global', usernameVar: USER, passwordVar: PWD)
+                //]) {
+                 //   sh "some script ${USER} and pass ${PWD}"
+                //}
             }
         }
     }
