@@ -1,9 +1,13 @@
 pipeline {
     agent any
+    environment {
+        NEW_VERSION = '1.3.0'
+        SER_CRED = credentials('global')
+    }
     stages {
         stage('Build') {
             steps {
-                echo 'Building'
+                echo "Building version ${NEW_VERSION}"
                 withGradle {
                     sh './gradlew -v'
                 }
@@ -27,6 +31,7 @@ pipeline {
         stage('E2E') {
             steps {
                 echo 'E2E'
+                echo "E2E with cred ${SER_CRED}"
             }
         }
     }
