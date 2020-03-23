@@ -4,6 +4,9 @@ pipeline {
         NEW_VERSION = '1.3.0'
         SER_CRED = credentials('global')
     }
+    tools {
+     gradle 'Gradle'   
+    }
     stages {
         stage('Build') {
             steps {
@@ -11,6 +14,7 @@ pipeline {
                 withGradle {
                     sh './gradlew -v'
                 }
+                sh "gradle build"
             }
         }
         stage('Test') {
