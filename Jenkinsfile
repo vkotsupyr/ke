@@ -39,12 +39,12 @@ pipeline {
             }
         }
         stage('E2E') {
-            steps {
-                when {
+            when {
                     expression {
                         params.executeTests
                     }
                 }
+            steps {
                 echo 'E2E'
                 echo "E2E with cred ${SER_CRED}"
                // withCredentials([
