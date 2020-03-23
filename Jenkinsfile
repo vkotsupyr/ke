@@ -7,6 +7,11 @@ pipeline {
     tools {
      gradle 'Gradle'   
     }
+    parameters {
+        string(name: 'VERSION', defaultValue: '', description: '')
+        choice(name: 'Ver', choices:['1.1.0', '1.2.0', '1.3.0'], description: '')
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+    }
     stages {
         stage('Build') {
             steps {
@@ -30,10 +35,16 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying'
+                echo "deplouing version ${params.Ver}"
             }
         }
         stage('E2E') {
             steps {
+                when {
+                    expression {
+                        params.executeTests
+                    }
+                }
                 echo 'E2E'
                 echo "E2E with cred ${SER_CRED}"
                // withCredentials([
